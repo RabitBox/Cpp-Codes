@@ -4,6 +4,7 @@ C#のnull許容型を模倣したもの。
 
 # How to user
 ``` cpp
+#include <iostream>
 #include "nullable.h"
 using namespace std;
 
@@ -24,7 +25,7 @@ void main()
     nullable<int> val_2 = val_1;
     if(val_2)
     {
-        cout << (int)val_2 << endl;
+        cout << (int)val_2 << endl; // 実行される
     }
     
     val_1 = nullptr;
