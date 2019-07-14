@@ -2,7 +2,7 @@
 C#のnull許容型を模倣したもの。  
 基本的なgetter、setterのみ実装。
 
-# How to user
+# How to use
 ``` cpp
 #include <iostream>
 #include "nullable.h"
