@@ -1,6 +1,7 @@
 # nullable
 C#のnull許容型を模倣したもの。  
-基本的なgetter、setterのみ実装。
+基本的なgetter、setterのみ実装。  
+ぶっちゃけC++17ならstd::optionalがある。
 
 # How to use
 ``` cpp
