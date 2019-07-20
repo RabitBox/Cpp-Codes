@@ -1,4 +1,5 @@
 #pragma once
+#include <stdexcept>
 
 template<typename T>
 class nullable {
@@ -8,14 +9,19 @@ private:
 	
 public:
 	//--------------------------------------------------
-	// constructors
+	// Constructors
 	//--------------------------------------------------
 	nullable<T>() : has_value_(false) {}
 	nullable<T>(T value) : value_(value), has_value_(true) {}
 	nullable<T>(const nullable<T>& n_value) : value_(n_value.value_), has_value_(n_value.has_value_) {}
 
 	//--------------------------------------------------
-	// operator overloads
+	// Functions
+	//--------------------------------------------------
+	T Get() const { if (!has_value_) throw std::runtime_error("Value is none."); return this->value_; }
+
+	//--------------------------------------------------
+	// Operator overloads
 	//--------------------------------------------------
 	// setter
 	// Set null.
@@ -27,7 +33,7 @@ public:
 
 	// getter
 	// Cast to bool type.
-	inline explicit operator bool() const { return (*this).has_value_; }
+	inline explicit operator bool() const { return this->has_value_; }
 	// Cast to T type.
-	inline explicit operator T() const { if (!(*this).has_value_) std::runtime_error("value is none."); return (*this).value_; }
+	inline explicit operator T() const { if (!this->has_value_) std::runtime_error("value is none."); return this->value_; }
 };
